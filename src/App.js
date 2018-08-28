@@ -53,8 +53,7 @@ class App extends Component {
 
   isSignedIn=(boolData)=>this.setState({signedIn:boolData});
 
-  onSearch=(event)=>this.setState({search:event.target.value});
-
+  
   onNameChange=(event)=>{
   this.setState(Object.assign(this.state.user, {cardName:event.target.value}));
 };
