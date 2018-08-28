@@ -45,6 +45,11 @@ class Register extends Component{
 render(){
   return(
     <div>
+      <nav>
+      <div className="pr1 tr">
+          <p onClick={()=>this.props.onRouteChange('Products')} className="link pointer dim dark-gray f2 fw6 f5-ns dib mr3 mr4-ns">Back to Home Page</p>
+      </div>
+    </nav>
       <article className="br4 shadow-5 ba mh5 flex justify-center mv5 w-80 w-50-m w-60-l center">
     <main className="pa4 black-80 w-70 cen">
   <div className="measure">
