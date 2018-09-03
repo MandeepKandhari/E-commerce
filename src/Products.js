@@ -13,34 +13,30 @@ class Products extends Component {
 		}
 	}  
 
-
-
 onDisplay=(category)=>this.setState({isCategory:category});
-
-
 
   render() {
     return (
-      <div className="flex flex-column flex-wrap justify-center background">
+      <div className="flex flex-column justify-center background">
         <div className='w-100'>
         	<h1 className='fw6 tc blue heading_background mv0 pv4'>Products</h1>
         </div>
-        <div className='w-100 flex flex-column justify-center items-center'>
-            <nav className='w-100 pv3 ba flex justify-around'>
+        <div className='w-100 flex justify-center items-start'>
+            <nav className='w-20 pv3 flex mt5 flex-column items-center'>
         		<p onClick={()=>this.onDisplay('Household and Beauty')} 
-        		className='nav-items grow'>Household and Beauty</p>
+        		className='nav-items grow f5-l f6 mv3'>Household and Beauty</p>
         		
         		<p onClick={()=>this.onDisplay('Pantry Items')}
-        		 className='nav-items grow'>Pantry</p>
+        		 className='nav-items grow f5-l f6 mv3'>Pantry</p>
         		
         		<p onClick={()=>this.onDisplay('Perishables')}
-        		 className='nav-items grow'>Perishables</p>
+        		 className='nav-items grow f5-l f6 mv3'>Perishables</p>
         		<p onClick={()=>this.onDisplay('Produce')}
-        		className='nav-items grow' >Produce</p>
+        		className='nav-items grow f5-l f6 mv3' >Produce</p>
         	</nav>
         	
 
-            <div className='w-100 flex flex-wrap justify-center'>
+            <div className='w-80 ba flex flex-wrap justify-between items-center'>
                 {
                   this.props.itemsList.map((num,i)=>
                     {
@@ -53,17 +49,17 @@ onDisplay=(category)=>this.setState({isCategory:category});
                                     {
 
                                     return(
-                                        <div className='flex flex-wrap justify-center w-80-l'>
-                                        <div className='w-80 bb b--black bw2 mt4 pb0'>
+                                        <div className='flex flex-wrap justify-center w-100'>
+                                        <div className='w-90 bb b--black bw2 mt4 pb0'>
                                             <h2 className='tl fw6 mb0'>{num.name}</h2>
                                         </div>    
                                         {
                                             num.items.map((nums, i)=>
                                     {   return(
-                                            <div className='w-25-l ma2 w-100 flex justify-center'>
+                                            <div className='ma2-l w-30-l w-50-m w-80 flex justify-center'>
                                                 {
                                                     nums.name.toLowerCase().includes(this.props.search.toLowerCase())
-                                                    ?<div className='flex justify-center'>
+                                                    ?<div className='flex justify-center w-80'>
                                                         <Card name={nums.name} description={nums.description} 
                                                         price={nums.price} image={nums.imagelink} 
                                                         onCart={this.props.onCart} add={this.props.add}/>
