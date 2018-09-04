@@ -41,13 +41,9 @@ class Signin extends Component {
   }
   render(){
       return(
-    <div>   
-    <nav>
-      <div className="pr1 tr">
-          <p onClick={()=>this.props.onRouteChange('Products')} className="link pointer dim dark-gray f2 fw6 f5-ns dib mr3 mr4-ns">Back to Home Page</p>
-      </div>
-    </nav> 
-    <article className="br4 shadow-5 ba mh5 dark-gray mv5 w-80 w-50-m w-60-l flex justify-center center">
+    <div className='flex flex-column justify-around items-center'>   
+    
+    <article className="br4 mt5 shadow-5 ba bw1 dark-gray w-80 w-60-m w-50-l flex flex-column justify-center items-center">
       <main className="pa4 black-80 w-70">
         <div className="measure">
           <fieldset id="sign_up" className="ba b--transparent ph0 mh0">

@@ -17,26 +17,37 @@ onDisplay=(category)=>this.setState({isCategory:category});
 
   render() {
     return (
-      <div className="flex flex-column justify-center background">
+      <div className="flex flex-column items-center justify-center background">
         <div className='w-100'>
         	<h1 className='fw6 tc blue heading_background mv0 pv4'>Products</h1>
         </div>
+
+        <div className='w-80 flex justify-center'>
+            <select className='w-50 category-dropdown pv3 ph1 ma2 ba b--black bw1'>
+                <option onClick={()=>this.onDisplay('Household and Beauty')}>Household and Beauty</option>
+                <option onClick={()=>this.onDisplay('Pantry Items')}>Pantry</option>
+                <option onClick={()=>this.onDisplay('Perishables')}>Perishables</option>
+                <option onClick={()=>this.onDisplay('Produce')}>Produce</option>
+            </select>
+        </div>
+
         <div className='w-100 flex justify-center items-start'>
-            <nav className='w-20 pv3 flex mt5 flex-column items-center'>
+            <nav className='w-20 pv3 flex mt5 flex-column items-center category'>
         		<p onClick={()=>this.onDisplay('Household and Beauty')} 
         		className='nav-items grow f5-l f6 mv3'>Household and Beauty</p>
         		
-        		<p onClick={()=>this.onDisplay('Pantry Items')}
-        		 className='nav-items grow f5-l f6 mv3'>Pantry</p>
+                <p onClick={()=>this.onDisplay('Pantry Items')}
+        		className='nav-items grow f5-l f6 mv3'>Pantry</p>
         		
         		<p onClick={()=>this.onDisplay('Perishables')}
         		 className='nav-items grow f5-l f6 mv3'>Perishables</p>
-        		<p onClick={()=>this.onDisplay('Produce')}
+        		
+                <p onClick={()=>this.onDisplay('Produce')}
         		className='nav-items grow f5-l f6 mv3' >Produce</p>
         	</nav>
         	
 
-            <div className='w-80 ba flex flex-wrap justify-between items-center'>
+            <div className='w-80-l w-90 ba flex flex-wrap justify-between items-center'>
                 {
                   this.props.itemsList.map((num,i)=>
                     {
@@ -77,24 +88,19 @@ onDisplay=(category)=>this.setState({isCategory:category});
                                                      </div>     
                                                     :<div></div>
                                                 }          
-                                            </div>)
+                                            </div>
+                                        )
                                     })
                                     }
-                                    
                                     </div>
-                                        
-                                        )
-                                    }
-
-
+                                    )}
                                 }))  
                             }
-                        
-                    })
-                }
-            </div>
-        </div>	
-      </div>
+                        })
+                    }
+                </div>
+            </div>	
+        </div>
     );
   }
 }

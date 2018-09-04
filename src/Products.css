@@ -17,3 +17,19 @@ background-image: url("https://www.transparenttextures.com/patterns/dark-stripes
 background-image: linear-gradient(-225deg, #5D9FFF 0%, #B8DCFF 48%, #6BBBFF 100%);
 }
 
+.category-dropdown{
+    display: none;
+       }
+
+@media(max-width: 667px){
+       .category{
+       	display:none;
+       }
+       .category-dropdown{
+       	display: block;
+       	width:80%
+       }
+
+
+    }
+

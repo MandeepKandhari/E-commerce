@@ -11,13 +11,13 @@ class Card extends Component{
         alt={this.props.name} width={100} height={100}/>
         <div className="pa2 ph1-ns pb2-ns">
           <div className="w-100 flex flex-wrap items-center justify-center mt1">
-             <div className="w-50 tl">
+             <div className="w-60 mr1 tl">
                 <h3 className="f5 mv0">{this.props.name}</h3>
             </div>
-            <div className="w-30 tr">
+            <div className="w-30 ml1 tr">
                 <h3 className="f5 mv0">${this.props.price}</h3>
             </div>
-            <p className="w-80 f6 tj mt2">{this.props.description}</p>
+            <p className="w-90 f6 tj mt2">{this.props.description}</p>
           </div>
           <div className='flex justify-center'>
               <input id='addToCart' ref={this.input} type='button' onClick={()=>this.props.onCart(this.props.name, this.props.price)} 

@@ -252,8 +252,16 @@ onSearch=(event)=>this.setState({search:event.target.value});
     return (
       <div className="App">
       {console.log(this.state.items)}
-        {this.state.route === 'Sign in' ?<Signin onRouteChange={this.onRouteChange} isSignedIn={this.isSignedIn} loadUser={this.loadUser}/>
-        :(this.state.route === 'Register' ?<Register onRouteChange={this.onRouteChange} loadUser={this.loadUser} isSignedIn={this.isSignedIn}/>
+        {this.state.route === 'Sign in' ?
+        <div>
+          <Navbar onRouteChange={this.onRouteChange} items={this.state.items} name={this.state.user.name} isSignedIn={this.isSignedIn} signedIn={this.state.signedIn}/>
+          <Signin onRouteChange={this.onRouteChange} isSignedIn={this.isSignedIn} loadUser={this.loadUser}/>
+        </div>
+        :(this.state.route === 'Register' ?
+        <div>
+          <Navbar onRouteChange={this.onRouteChange} items={this.state.items} name={this.state.user.name} isSignedIn={this.isSignedIn} signedIn={this.state.signedIn}/>
+          <Register onRouteChange={this.onRouteChange} loadUser={this.loadUser} isSignedIn={this.isSignedIn}/>
+        </div>
         :(this.state.route === 'Products' ?
           <div>
           <Navbar onRouteChange={this.onRouteChange} items={this.state.items} name={this.state.user.name} isSignedIn={this.isSignedIn} signedIn={this.state.signedIn}/>
@@ -287,7 +295,10 @@ onSearch=(event)=>this.setState({search:event.target.value});
             <Footer />
           </div>
           :(this.state.route === 'PaymentSuccess'
-            ? <PaymentSuccess onRouteChange={this.onRouteChange}/>
+            ? <div>
+                <Navbar onRouteChange={this.onRouteChange} items={this.state.items} name={this.state.user.name} isSignedIn={this.isSignedIn} signedIn={this.state.signedIn}/>
+                <PaymentSuccess onRouteChange={this.onRouteChange}/>
+              </div>   
             :<Errorpage onRouteChange={this.onRouteChange}/>
             ))  ))  )
 
