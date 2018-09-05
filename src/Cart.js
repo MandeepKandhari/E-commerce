@@ -51,9 +51,9 @@ render(){
         
         return(
           <tr className="stripe-dark" key={num.item}>
-            <td className="pa2 hide-child">
+            <td className="pa2">
               <p>{num.item}</p>
-              <button className='child pa2 ma1 w-50' onClick={()=>this.props.remove(num.item.toLowerCase())}>Remove item</button>
+              <button className='pa2 ma1 w-50 ba black b--black bw1' onClick={()=>this.props.remove(num.item.toLowerCase())}>Remove item</button>
             </td>
             <td className="pa2">
               <input type="number" name={num.item} value={num.quantity} min="1" max="10" onChange={this.onInputChange(num.item)} />

@@ -48,8 +48,8 @@ class Signin extends Component {
         <div className="measure">
           <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
           <legend className="f2-l f4 fw6 w-100 tc center">Sign In</legend>
-          <div className="mt3">
-          <label className="db fw6 lh-copy flex items-start f6 w-100" htmlFor="email-address">Email</label>
+        <div className="mt3">
+          <label className="db fw6 flex items-start f6 w-100" htmlFor="email-address">Email</label>
           <input className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" 
             type="email" 
             name="email-address"
@@ -68,15 +68,15 @@ class Signin extends Component {
       </div>
       
       </fieldset>
-      <div className="lh-copy mt3 flex justify-center">
-      <input className="b ph3 w-40-l w-40-m w-100 tc pv2 input-reset ba b--black bg-transparent grow pointer fw6 f6 dib" 
+      <div className="mt3 w-80 flex justify-center">
+      <input className="b ph3 w-40-l w-70-m w-80 tc pv2 input-reset ba b--black bg-transparent grow pointer fw6 f6 dib" 
       type="submit" value="Sign in" onClick={this.onSubmitSignin}/>
       </div>
       <div>
       {this.state.error === 'error logging in'? <p className='f5 fw6 red'>Either the Email or the password is incorrect</p>:null}
       </div>
-      <div className="lh-copy mt3">
-      <p className="f5 fw6 link pointer dim black tc db pointer" onClick={()=>this.props.onRouteChange('Register')}>Register</p>
+      <div className="mt3 w-80">
+      <p className="f5 tc fw6 link pointer dim black tc db pointer" onClick={()=>this.props.onRouteChange('Register')}>Register</p>
       </div>
   </div>
 </main>

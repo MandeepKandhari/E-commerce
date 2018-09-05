@@ -54,26 +54,26 @@ onPaymentSubmit=()=>{
 
 
 	render(){
-		return(
-		<div className='w-100 flex justify-center'>
-			<article className='w-40-l w-60 ba br4 ma4 pa3 flex flex-column items-center'>
-					<h1 className='tc fw6 ma2 pa3'>Pay Invoice</h1>
+		return(			
+		<div className='w-100 flex flex-column items-center justify-around'>
+			<article className='w-50-l w-60-m w-80 ba bw1 dark-gray br4 mv5 pa3 flex flex-column justify-center items-center'>
+					<h1 className='tc fw6 mh2 mv1 pa2'>Pay Invoice</h1>
 					<div className='flex flex-column justify-center items-center '>
 						<h3 className='mb0 pb0'>Payment Amount</h3>
-						<p className='pt0 mt0 fw6 f3 pa1'>${this.props.total}</p>
+						<p className='pt0 mv0 fw6 f3 pa1'>${this.props.total}</p>
 					</div>
 					<div className='w-100 pa3 flex flex-column items-center'>
 						<div className='w-100 flex flex-column items-center'>
 							<label className='tl pl1 w-80'  htmlFor='Card-name'>Name on Card</label>
-							<input className='w-80 br1 ba b--black pv2 ma1' 
+							<input className='w-80 br1 ba b--black pv2 mh1' 
 							type='text' 
 							name='Card-name'
 							onChange={this.props.onNameChange} value={this.props.cardName}
 						 />
 						</div>
-						<div className='w-100 flex flex-column items-center mt1'>
+						<div className='w-100 flex flex-column items-center'>
 							<label className='w-80 tl pl1' htmlFor='Card-number'>Card number</label>
-							<input className='w-80 br1 ba b--black pv2 ma1' 
+							<input className='w-80 br1 ba b--black pv2 mh1' 
 							type='text' 
 							name='Card-number' 
 							onChange={this.onNumberChange}
@@ -81,19 +81,19 @@ onPaymentSubmit=()=>{
 						/>
 						</div>
 						
-						<div className='w-80 flex flex-wrap justify-between-l justify-start mt1 pa1'>
+						<div className='w-80 flex flex-wrap justify-between-l justify-start pa1'>
 							<div className='w-40-l w-100 flex flex-column  items-center'>
 								<label className='w-100 tl' htmlFor='Expiry-date'>Expiry date</label>
-								<input className='w-100 br1 ba b--black pv2' 
+								<input className='w-100 br1 ba b--black pv2 mh1' 
 								type='month' 
 								name='Expiry-date'  
 								placeholder='mm/yy'
 								onChange={this.onExpiryDateChange}	
 							/>
 							</div>
-							<div className='w-40-l w-100 flex flex-column items-center mt1'>
+							<div className='w-40-l w-100 flex flex-column items-center'>
 								<label className='w-100 tl' htmlFor='Security-code'>Security code</label>
-								<input className='w-100 ml2-l br1 ba b--black pv2' 
+								<input className='w-100 ml2-l br1 ba b--black pv2 mh1' 
 								type='password' 
 								name='Security-code' 
 								onChange={this.onSecurityCodeChange}
@@ -101,18 +101,18 @@ onPaymentSubmit=()=>{
 							</div>	
 						</div>
 
-						<div className='w-100 flex flex-column justify-start items-center ma1'>
+						<div className='w-100 flex flex-column justify-start items-center'>
 							<label className='w-80 tl pl1' htmlFor='ZIP'>Postal code</label>
-							<input className='w-80 br1 ba b--black pa2 ma1' 
+							<input className='w-80 br1 ba b--black pv2 mh1' 
 							type='password' 
 							name='ZIP' 
 							value={this.props.postalCode}
 							onChange={this.props.onPostalCodeChange}
 						/>
 						</div>
-						<div className='mt2 w-40'>
-							<input className='b ph3 w-40-l link w-40-m tc w-80 pv2 input-reset ba b--black bg-transparent grow pointer fw6 f6 dib' 
-							type='submit' 
+						<div className='mt2 w-50 flex justify-center '>
+							<input className='b tc bw1 ph3 w-40-l link w-70-m tc w-80 pv2 input-reset ba b--black bg-transparent grow pointer fw6 f6 dib' 
+							type='submit' 		
 							value='Submit'
 							onClick={this.onPaymentSubmit}
 						 />
@@ -126,7 +126,7 @@ onPaymentSubmit=()=>{
 			
 			</article>
 		</div>
-		);
+		);													
 	}
 	}
 export default Payment;

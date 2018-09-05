@@ -45,7 +45,7 @@ class Register extends Component{
 render(){
   return(
   <div>
-    <article className="br4 shadow-5 ba bw1 mh5 flex justify-center mv5 w-80 w-40-m w-50-l center">
+    <article className="br4 shadow-5 ba bw1 mh5 flex flex-column items-center justify-center mv5 w-80 w-60-m w-50-l center">
       <main className="pa4 black-80 w-70 cen">
         <div className="measure">
           <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
@@ -78,7 +78,7 @@ render(){
             </div>
           </fieldset>
           <div className="center flex justify-center">
-            <input className="b ph3 w-40-l link w-40-m tc w-80 pv2 input-reset ba b--black bg-transparent grow pointer fw6 f6 dib"
+            <input className="b ph3 w-40-l link w-60-m tc w-80 pv2 input-reset ba b--black bg-transparent grow pointer fw6 f6 dib"
             type="submit" value="Submit" onClick={this.onRegisterSubmit}/>
           </div>
         </div>
