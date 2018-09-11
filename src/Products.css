@@ -2,7 +2,7 @@
 	padding: 1.2rem 0.5rem;
 	font-weight: 600;
 	cursor: pointer;
-	width:80%;
+	width:95%;
 	box-shadow: 4px 4px 8px 0px rgba( 0, 0, 0, 0.2 );
 	background-color: #111111;
 	color:#F4F4F4;
@@ -12,9 +12,6 @@
 {
 background-color: #000000;
 background-image: url("https://www.transparenttextures.com/patterns/dark-stripes-light.png");
-}
-.background{
-background-image: linear-gradient(-225deg, #5D9FFF 0%, #B8DCFF 48%, #6BBBFF 100%);
 }
 
 .category-dropdown{

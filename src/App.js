@@ -13,10 +13,10 @@ import Payment from './Payment';
 import Errorpage from './Errorpage';
 import PaymentSuccess from './PaymentSuccess';
 
-class App extends Component {
-  constructor(){
-    super();
-    this.state={
+
+
+
+const initialState={
       commodity:['search', 'add', 'delete','change','products', 'cart', 'register', 'payment', 'sign in'],
       itemsList:[],
       items:[],
@@ -38,6 +38,12 @@ class App extends Component {
 
       }
     }
+
+class App extends Component {
+  constructor(){
+    super();
+    this.state = initialState;
+
   }
 
   loadUser=(data)=>{
@@ -52,6 +58,12 @@ class App extends Component {
   }
 
   isSignedIn=(boolData)=>this.setState({signedIn:boolData});
+
+  onLogOut=()=>{
+    this.isSignedIn(false);
+    this.setState(initialState);
+    this.props.onRouteChange('Products')
+  }
 
   
   onNameChange=(event)=>{
