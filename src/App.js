@@ -283,7 +283,7 @@ onSearch=(event)=>this.setState({search:event.target.value});
           </div> 
           :(this.state.route === 'Payment' ?
             <div>
-              <Payment total={this.state.total}  userId={this.state.user.id}
+              <Payment total={this.state.total}  userId={this.state.user.id} signedIn={this.state.signedIn}
               cardName={this.state.user.cardName} 
               postalCode={this.state.user.postalCode}
               onRouteChange={this.onRouteChange}

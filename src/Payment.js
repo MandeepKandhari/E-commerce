@@ -32,8 +32,8 @@ onPaymentSubmit=()=>{
 		method:'post',
 		headers:{'Content-Type':'application/json'},
 		body:JSON.stringify({
-			cardName:this.props.cardName,
-			cardnumber:this.state.Number,
+			name:this.props.cardName,
+			number:this.state.Number,
 			expiryDate:this.state.ExpiryDate,
 			securityCode:this.state.SecurityCode,
 			postalCode:this.props.postalCode
