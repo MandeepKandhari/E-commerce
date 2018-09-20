@@ -6,7 +6,8 @@ class Register extends Component{
     this.state={
       registerName:'',
       registerEmail:'',
-      registerPassword:''
+      registerPassword:'',
+      error:''
     }
   }
 
@@ -23,7 +24,7 @@ class Register extends Component{
   };
 
   onRegisterSubmit=()=>{
-    fetch('http://localhost:3004/register',{
+    fetch('https://obscure-gorge-79821.herokuapp.com/register',{
       method:'post',
       headers:{'Content-Type':'application/json'},
       body:JSON.stringify({
@@ -34,10 +35,13 @@ class Register extends Component{
     })
     .then(response=>response.json())
     .then(user=>{
-      if(user){
+      if(user.id){
         this.props.loadUser(user);
         this.props.isSignedIn(true);
         this.props.onRouteChange('Products');
+      }
+      else{
+        this.setState({error:'the user already exist!!!'})
       }
     })
   };
@@ -76,10 +80,13 @@ render(){
                 onChange={this.onPasswordChange}
               />
             </div>
-          </fieldset>
+        </fieldset>
           <div className="center flex justify-center">
             <input className="b ph3 w-40-l link w-60-m tc w-80 pv2 input-reset ba b--black bg-transparent grow pointer fw6 f6 dib"
             type="submit" value="Submit" onClick={this.onRegisterSubmit}/>
+          </div>
+          <div>
+            {this.state.error === 'the user already exist!!!'? <p className='f5 fw6 red'>The user already exist!!!</p>:null}
           </div>
         </div>
       </main>

@@ -3,11 +3,7 @@ import Logo from './Logo.png';
 
 class Navbar extends Component {
 
-  onLogOut=()=>{
-    this.props.isSignedIn(false);
-    this.props.onRouteChange('Products')
-  }
-
+  
     render() {
     return (
       <div>
@@ -26,7 +22,7 @@ class Navbar extends Component {
           )}          
           <p onClick={()=>this.props.onRouteChange('Payment')} className="link pointer dim dark-gray f6 fw6 f5-ns dib mr4-l mh3-m mr2">Payment</p>
           <p onClick={()=>this.props.onRouteChange('Products')} className="link pointer dim dark-gray f6 fw6 f5-ns dib mr4-l mh3-m mr2">Hi! {this.props.name}</p>
-          <p onClick={this.onLogOut} className="link pointer dim dark-gray f6 fw6 f5-ns dib mr4-l mh3-m mr2">Logout</p>
+          <p onClick={this.props.onLogOut} className="link pointer dim dark-gray f6 fw6 f5-ns dib mr4-l mh3-m mr2">Logout</p>
         </div>
       </nav>
       :<nav className="w-100 flex flex-wrap justify-center items-center bb b--black pa3 ph5-ns">

@@ -28,8 +28,8 @@ onSecurityCodeChange=(event)=>{
 
 
 onPaymentSubmit=()=>{
-	fetch(`http://localhost:3004/payment/${this.props.userId}`,{
-		method:'put',
+	fetch(`https://obscure-gorge-79821.herokuapp.com/payment/${this.props.userId}`,{
+		method:'post',
 		headers:{'Content-Type':'application/json'},
 		body:JSON.stringify({
 			cardName:this.props.cardName,
@@ -41,11 +41,10 @@ onPaymentSubmit=()=>{
 	})
 	.then(response=>response.json())
 	.then(data=>{
-		console.log(data)
-		if(data === 'success' || (data !== null && typeof data === 'object')) {
+		if(data === 'success') {
 			this.props.onRouteChange('PaymentSuccess');
 		}
-		else if(data === 'error'){
+		else {
 			this.setState({error:'data'})
 		}
 	})

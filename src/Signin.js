@@ -19,7 +19,7 @@ class Signin extends Component {
   };
 
   onSubmitSignin=()=>{
-    fetch('/signin',{
+    fetch('https://obscure-gorge-79821.herokuapp.com/signin',{
       method:'post',
       headers:{'Content-Type':'application/json'},
       body:JSON.stringify({
@@ -29,13 +29,13 @@ class Signin extends Component {
     })
     .then(response=>response.json())
     .then(data=>{
-      if(data !== 'error logging in'){
+      if(data.id){
         this.props.loadUser(data);
         this.props.isSignedIn(true);
         return this.props.onRouteChange('Products')
       }
-      else if(data === 'error logging in'){
-        this.setState({error:data})
+      else {
+        this.setState({error:'error logging in'})
       }
     })
   }

@@ -62,7 +62,7 @@ class App extends Component {
   onLogOut=()=>{
     this.isSignedIn(false);
     this.setState(initialState);
-    this.props.onRouteChange('Products')
+    this.onRouteChange('Products')
   }
 
   
@@ -120,18 +120,13 @@ class App extends Component {
           num.total = amount;
 
         }
-        console.log(num.total)
-      })
-      console.log(totalState)
-
+        })
       totalState.map((num,i)=>{
         initailValue = num.total + initailValue;
         return(this.setState({total:initailValue}));
       })      
-      console.log('total',this.state.total)
-
-      }
     }
+  }
 
   onCart=(name, price)=>{
 
@@ -263,40 +258,32 @@ onSearch=(event)=>this.setState({search:event.target.value});
   render() {
     return (
       <div className="App">
-      {console.log(this.state.items)}
-        {this.state.route === 'Sign in' ?
-        <div>
-          <Navbar onRouteChange={this.onRouteChange} items={this.state.items} name={this.state.user.name} isSignedIn={this.isSignedIn} signedIn={this.state.signedIn}/>
-          <Signin onRouteChange={this.onRouteChange} isSignedIn={this.isSignedIn} loadUser={this.loadUser}/>
-        </div>
-        :(this.state.route === 'Register' ?
-        <div>
-          <Navbar onRouteChange={this.onRouteChange} items={this.state.items} name={this.state.user.name} isSignedIn={this.isSignedIn} signedIn={this.state.signedIn}/>
-          <Register onRouteChange={this.onRouteChange} loadUser={this.loadUser} isSignedIn={this.isSignedIn}/>
-        </div>
-        :(this.state.route === 'Products' ?
+        <Navbar onRouteChange={this.onRouteChange} onLogOut={this.onLogOut} items={this.state.items} name={this.state.user.name} isSignedIn={this.isSignedIn} signedIn={this.state.signedIn}/>
+        {
+          this.state.route === 'Sign in' ?
           <div>
-          <Navbar onRouteChange={this.onRouteChange} items={this.state.items} name={this.state.user.name} isSignedIn={this.isSignedIn} signedIn={this.state.signedIn}/>
-          <Searchbar search={this.state.search} onSearch={this.onSearch}/>
-          <Products itemsList={this.state.itemsList} add={this.state.add}
-          search={this.state.search} onRouteChange={this.onRouteChange} onCart={this.onCart}/>
-          <Footer />
+            <Signin onRouteChange={this.onRouteChange} isSignedIn={this.isSignedIn} loadUser={this.loadUser}/>
           </div>
-        :(this.state.route === 'Cart' ?
-        <div>
-         <Navbar onRouteChange={this.onRouteChange} items={this.state.items} name={this.state.user.name} isSignedIn={this.isSignedIn} signedIn={this.state.signedIn}/>
-         <Cart onRouteChange={this.onRouteChange} items={this.state.items} remove={this.removeItem} total={this.state.total} 
-         totalState={this.state.totalState} grandTotal={this.grandTotal}/>
-         <Footer />
-        </div> 
-        :(this.state.route === 'Payment' ?
+          :(this.state.route === 'Register' ?
           <div>
-            <Navbar onRouteChange={this.onRouteChange} items={this.state.items} 
-            name={this.state.user.name} 
-            isSignedIn={this.isSignedIn} 
-            signedIn={this.state.signedIn}
-            />
-            <Payment total={this.state.total}  userId={this.state.user.id}
+            <Register onRouteChange={this.onRouteChange} loadUser={this.loadUser} isSignedIn={this.isSignedIn}/>
+          </div>
+          :(this.state.route === 'Products' ?
+            <div>
+            <Searchbar search={this.state.search} onSearch={this.onSearch}/>
+            <Products itemsList={this.state.itemsList} add={this.state.add}
+            search={this.state.search} onRouteChange={this.onRouteChange} onCart={this.onCart}/>
+            <Footer />
+            </div>
+          :(this.state.route === 'Cart' ?
+          <div>
+           <Cart onRouteChange={this.onRouteChange} items={this.state.items} remove={this.removeItem} total={this.state.total} 
+           totalState={this.state.totalState} grandTotal={this.grandTotal}/>
+           <Footer />
+          </div> 
+          :(this.state.route === 'Payment' ?
+            <div>
+              <Payment total={this.state.total}  userId={this.state.user.id}
               cardName={this.state.user.cardName} 
               postalCode={this.state.user.postalCode}
               onRouteChange={this.onRouteChange}
@@ -308,7 +295,6 @@ onSearch=(event)=>this.setState({search:event.target.value});
           </div>
           :(this.state.route === 'PaymentSuccess'
             ? <div>
-                <Navbar onRouteChange={this.onRouteChange} items={this.state.items} name={this.state.user.name} isSignedIn={this.isSignedIn} signedIn={this.state.signedIn}/>
                 <PaymentSuccess onRouteChange={this.onRouteChange}/>
               </div>   
             :<Errorpage onRouteChange={this.onRouteChange}/>
